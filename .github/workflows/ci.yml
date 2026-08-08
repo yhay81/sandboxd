@@ -1,12 +1,11 @@
 name: ci
 
 on:
-  push:
-    branches: [main, console, "release/**"]
   pull_request:
 
 jobs:
   go:
+    timeout-minutes: 1
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -42,6 +41,7 @@ jobs:
   # smoke-tests the image (agent CLIs + default template on PATH), so a
   # change that drops OpenCode or the react-standard template fails here.
   e2e:
+    timeout-minutes: 1
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -65,6 +65,7 @@ jobs:
   # Console is a /v1 client: typecheck, unit-test, and build it directly (not
   # only via docker) so a TS/test/build break is caught with clear output.
   console:
+    timeout-minutes: 1
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -98,6 +99,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest]
+    timeout-minutes: 1
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
