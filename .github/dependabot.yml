@@ -5,7 +5,7 @@ updates:
     directory: /control-plane
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 0
     labels: ["dependencies", "go"]
     groups:
       go:
@@ -18,7 +18,7 @@ updates:
     directory: /console
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 0
     labels: ["dependencies", "console"]
     groups:
       npm:
@@ -33,6 +33,7 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    open-pull-requests-limit: 0
     labels: ["dependencies", "ci"]
     groups:
       actions:
@@ -47,6 +48,7 @@ updates:
       - /image
     schedule:
       interval: weekly
+    open-pull-requests-limit: 0
     labels: ["dependencies", "docker"]
     groups:
       docker:
